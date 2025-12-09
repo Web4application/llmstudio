@@ -1,0 +1,12 @@
+<idea-plugin package="com.intellij.ml.llm.javaee">
+  <dependencies>
+    <plugin id="com.intellij.java"/>
+  </dependencies>
+
+  <extensions defaultExtensionNs="com.intellij">
+    <projectTechnologiesChatContextProvider implementation="com.intellij.ml.llm.javaee.JavaeeChatContextProvider"/>
+    <projectTechnologiesChatContextProvider implementation="com.intellij.ml.llm.javaee.JakartaChatContextProvider"/>
+    <projectTechnologiesChatContextProvider implementation="com.intellij.ml.llm.javaee.SpringDataChatContextProvider"/>
+    <projectTechnologiesChatContextProvider implementation="com.intellij.ml.llm.javaee.SpringMvcChatContextProvider"/>
+  </extensions>
+</idea-plugin>

@@ -1,0 +1,11 @@
+<idea-plugin package="com.intellij.ml.llm.go">
+  <dependencies>
+    <plugin id="org.jetbrains.plugins.go"/>
+  </dependencies>
+
+  <extensions defaultExtensionNs="com.intellij">
+    <chatContextProvider implementation="com.intellij.ml.llm.go.context.GoLandPreferableLanguageChatContextPartProvider"/>
+    <projectTechnologiesChatContextProvider implementation="com.intellij.ml.llm.go.context.GoVersionChatContextProvider"/>
+    <daemon.intentionActionFilter implementation="com.intellij.ml.llm.go.intentions.DisableAIAssistantIntentionInVgoLanguageFilter"/>
+  </extensions>
+</idea-plugin>

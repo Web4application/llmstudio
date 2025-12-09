@@ -1,0 +1,26 @@
+<idea-plugin package="com.intellij.php.llm">
+  <dependencies>
+    <plugin id="com.jetbrains.php"/>
+  </dependencies>
+  <extensions defaultExtensionNs="com.intellij">
+    <chatContextProvider implementation="com.intellij.php.llm.chat.PhpPreferableLanguageChatContextPartProvider"/>
+    <projectTechnologiesChatContextProvider implementation="com.intellij.php.llm.chat.PhpTechnologiesChatContextProvider"/>
+  </extensions>
+  <extensions defaultExtensionNs="com.intellij.ml.llm">
+    <classContextBuilder language="PHP"
+                         implementationClass="com.intellij.php.llm.context.classbuilder.PhpClassContextBuilder"/>
+    <methodContextBuilder language="PHP"
+                          implementationClass="com.intellij.php.llm.context.methodbuilder.PhpMethodContextBuilder"/>
+    <fileContextBuilder language="PHP"
+                        implementationClass="com.intellij.php.llm.context.filebuilder.PhpFileContextBuilder"/>
+    <variableContextBuilder language="PHP"
+                            implementationClass="com.intellij.php.llm.context.variablebuilder.PhpVariableContextBuilder"/>
+    <documentationSupport language="PHP" implementationClass="com.intellij.php.llm.doc.LLMPhpDocumentationSupport"/>
+  </extensions>
+  <extensions defaultExtensionNs="com.intellij.ml.llm">
+    <nameSuggestionContextProvider language="PHP" implementationClass="com.intellij.php.llm.PhpNameSuggestionContextProvider"/>
+  </extensions>
+  <extensions defaultExtensionNs="com.jetbrains.php">
+    <baseLexerProvider implementation="com.intellij.php.llm.chat.PhpChatLexerProvider"/>
+  </extensions>
+</idea-plugin>

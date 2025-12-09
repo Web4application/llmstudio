@@ -1,0 +1,27 @@
+<idea-plugin package="com.intellij.ml.llm.cpp">
+  <dependencies>
+    <plugin id="com.intellij.modules.clion"/>
+  </dependencies>
+
+  <extensions defaultExtensionNs="com.intellij">
+    <chatContextProvider implementation="com.intellij.ml.llm.cpp.CLionWorkspaceContextProvider"/>
+    <codeContextProvider implementation="com.intellij.ml.llm.cpp.CLionCodeContextProvider"/>
+    <consoleFilterProvider implementation="com.intellij.ml.llm.cpp.cmake.CMakeConsoleLLMHelpProvider"/>
+    <completion.contributor implementationClass="com.intellij.ml.llm.cpp.completion.CLionLLMNameSuggestionContributor"
+                            language="ObjectiveC"/>
+  </extensions>
+
+  <extensions defaultExtensionNs="com.intellij.ml.llm">
+    <documentationSupport language="ObjectiveC"
+                          implementationClass="com.intellij.ml.llm.cpp.CLionLLMDocumentationSupport"/>
+
+    <nameSuggestionContextProvider language="ObjectiveC"
+                                   implementationClass="com.intellij.ml.llm.cpp.refactoring.CLionLLMNameSuggestionContextProvider"/>
+
+    <classContextBuilder language="ObjectiveC" implementationClass="com.intellij.ml.llm.cpp.contextBuilders.CLionClassContextBuilder"/>
+    <fileContextBuilder language="ObjectiveC" implementationClass="com.intellij.ml.llm.cpp.contextBuilders.CLionFileContextBuilder"/>
+    <methodContextBuilder language="ObjectiveC" implementationClass="com.intellij.ml.llm.cpp.contextBuilders.CLionMethodContextBuilder"/>
+    <variableContextBuilder language="ObjectiveC"
+                            implementationClass="com.intellij.ml.llm.cpp.contextBuilders.CLionVariableContextBuilder"/>
+  </extensions>
+</idea-plugin>
